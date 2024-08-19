@@ -31,9 +31,9 @@ public class App extends Application {
             new Thread(() -> {
                 try {
                     Controller controller = loader.getController();
-                    Thread.sleep(2000); // Symulacja długiego ładowania (2 sekundY)
-                    // Uruchomienie metody openMainStage z bieżącego kontrolera (LoadingView.fxml)
-                    Platform.runLater(controller::openMainStage);
+                    // Uruchomienie procesu ładowania, zamyka obecne okno i otwiera nowe
+                    Thread.sleep(2000); // Symulacja długiego ładowania (2 sekundy)
+                    Platform.runLater(controller::loadingProcessProgIndic);
                 } catch (InterruptedException e) {
                     System.out.println("Błąd podczas ładowania sceny LoginView.fxml:");
                     e.printStackTrace();

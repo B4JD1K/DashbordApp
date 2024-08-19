@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressIndicator?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="300.0" maxWidth="400.0" minHeight="300.0" minWidth="400.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="now.be.dashboardapp.Controller">
     <children>
-        <ProgressIndicator fx:id="progressIndicator" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="400.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+        <ProgressIndicator fx:id="progressIndicator" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="400.0" progress="0.0" AnchorPane.bottomAnchor="-12.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="6.0" />
+      <Label fx:id="lblProgIndicText" alignment="CENTER" layoutX="70.0" layoutY="120.0" prefHeight="60.0" prefWidth="260.0" textAlignment="CENTER">
+         <font>
+            <Font name="Gentium Book Basic" size="32.0" />
+         </font>
+      </Label>
     </children>
 </AnchorPane>
