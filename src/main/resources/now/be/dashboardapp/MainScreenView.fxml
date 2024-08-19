@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="apScreenSource" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="now.be.dashboardapp.controllers.LoginController">
+    <fx:include fx:id="mainScreenSource" source="ILoginView.fxml" />
+</AnchorPane>

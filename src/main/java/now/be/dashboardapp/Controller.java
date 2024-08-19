@@ -19,9 +19,9 @@ public class Controller {
     @FXML
     public void openLoginPanelScene() {
         try {
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("LoginView.fxml")));
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MainScreenView.fxml")));
             Scene scene = new Scene(root, 800, 600);
-            Stage newStage = new Stage(); // Otwiera nowe okno (Stage) LoginView.fxml
+            Stage newStage = new Stage(); // Otwiera nowe okno (Stage) MainScreenView.fxml
             newStage.setScene(scene);
             newStage.setTitle("Main Application");
             newStage.setResizable(false);
@@ -29,7 +29,7 @@ public class Controller {
             Stage currentStage = (Stage) progressIndicator.getScene().getWindow();
             currentStage.close(); // Zamyka obecne okno (Stage) LoadingView.fxml
         } catch (IOException e) {
-            System.out.println("Błąd podczas ładowania sceny LoginView.fxml:");
+            System.out.println("Błąd podczas ładowania sceny MainScreenView.fxml:");
             e.printStackTrace();
         }
     }
