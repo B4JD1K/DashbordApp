@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
@@ -12,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="now.be.dashboardapp.controllers.LoginController">
+<BorderPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="now.be.dashboardapp.controllers.RegisterController">
    <top>
       <Pane prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: wheat;" BorderPane.alignment="CENTER" />
    </top>
@@ -28,31 +30,59 @@
    <center>
       <AnchorPane maxWidth="300.0" prefWidth="300.0" BorderPane.alignment="CENTER">
          <children>
-            <VBox alignment="CENTER" prefWidth="300.0" spacing="12.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <VBox alignment="CENTER" prefWidth="300.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <Label fx:id="lblLoginToDashboard" alignment="TOP_CENTER" text="PANEL REJESTACYJNY" textAlignment="CENTER" wrapText="true">
                      <font>
                         <Font size="32.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="tfUsername" promptText="Nazwa użytkownika..." />
-                  <PasswordField fx:id="pfPassword" promptText="Hasło..." />
-                  <HBox alignment="CENTER" prefWidth="200.0" spacing="50.0">
+                  <HBox spacing="5.0">
                      <children>
-                        <CheckBox fx:id="cbRememberMe" mnemonicParsing="false" onAction="#rememberMeChecked" text="Zapamiętaj mnie">
-                           <font>
-                              <Font name="System Italic" size="12.0" />
-                           </font>
-                        </CheckBox>
-                        <Button fx:id="btnForgotPass" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#forgottenPassword" style="-fx-background-color: none;" text="Zapomniałem hasła" textAlignment="RIGHT" underline="true">
-                           <font>
-                              <Font name="System Italic" size="12.0" />
-                           </font>
-                        </Button>
+                        <TextField fx:id="tfName" promptText="Imię..." />
+                        <TextField fx:id="tfSurname" promptText="Nazwisko..." />
                      </children>
                   </HBox>
-                  <Button fx:id="btnLogin" mnemonicParsing="false" onAction="#loginToApp" prefHeight="32.0" prefWidth="150.0" text="Zaloguj" />
-                  <Button fx:id="btnCreateAccount" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#createAccount" style="-fx-background-color: none;" text="Nie masz konta? Zarejestruj się!" textAlignment="RIGHT" underline="true">
+                  <HBox alignment="CENTER" spacing="5.0">
+                     <children>
+                        <TextField fx:id="tfUsername" promptText="Nazwa użytkownika..." HBox.hgrow="ALWAYS">
+                           <tooltip>
+                              <Tooltip autoHide="true" text="Nazwa użytkownika ma mieć min. 6 znaków" />
+                           </tooltip></TextField>
+                        <Button fx:id="btnAvailabilityCheck" mnemonicParsing="false" onAction="#usernameAvailabilityCheck" text="Sprawdź dostępność" />
+                     </children>
+                  </HBox>
+                  <HBox spacing="5.0">
+                     <children>
+                        <TextField fx:id="tfEmail" promptText="Email..." />
+                        <TextField fx:id="tfEmailRetry" promptText="Powtórz email..." />
+                     </children>
+                  </HBox>
+                  <HBox spacing="5.0">
+                     <children>
+                        <PasswordField fx:id="pfPassword" promptText="Hasło..." />
+                        <PasswordField fx:id="pfPasswordRetry" promptText="Powtórz hasło..." />
+                     </children>
+                  </HBox>
+                  <VBox spacing="6.0">
+                     <children>
+                        <CheckBox fx:id="cbAcceptTOS" mnemonicParsing="false" onAction="#acceptTOSChecked" text="Akceptuję regulamin.">
+                           <font>
+                              <Font name="System Italic" size="10.0" />
+                           </font>
+                        </CheckBox>
+                        <CheckBox fx:id="cbDataProcessing" mnemonicParsing="false" onAction="#acceptDataProcessing" text="Wyrażam zgodę na przetwarzanie danych osobowych." wrapText="true">
+                           <font>
+                              <Font name="System Italic" size="10.0" />
+                           </font>
+                        </CheckBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="10.0" />
+                     </VBox.margin>
+                  </VBox>
+                  <Button fx:id="btnRegister" mnemonicParsing="false" onAction="#registerAccount" prefHeight="32.0" prefWidth="150.0" text="Zarejestruj" />
+                  <Button fx:id="btnLoginToApp" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#switchToLoginScene" style="-fx-background-color: none;" text="Masz już konto? Zaloguj się!" textAlignment="RIGHT" underline="true">
                      <font>
                         <Font name="System Italic" size="12.0" />
                      </font>
