@@ -11,25 +11,24 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.Objects;
-
 public class Controller {
     public ProgressIndicator progressIndicator;
     public Label lblProgIndicText;
 
     @FXML
-    public void openLoginPanelScene() {
+    public void openNewStage(String fxmlFile) {
         try {
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MainScreenView.fxml")));
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(fxmlFile)));
             Scene scene = new Scene(root, 800, 600);
             Stage newStage = new Stage(); // Otwiera nowe okno (Stage) MainScreenView.fxml
             newStage.setScene(scene);
-            newStage.setTitle("Main Application");
+            newStage.setTitle(fxmlFile);
             newStage.setResizable(false);
             newStage.show();
             Stage currentStage = (Stage) progressIndicator.getScene().getWindow();
             currentStage.close(); // Zamyka obecne okno (Stage) LoadingView.fxml
         } catch (IOException e) {
-            System.out.println("Błąd podczas ładowania sceny MainScreenView.fxml:");
+            System.out.println("Błąd podczas ładowania sceny:" + fxmlFile);
             e.printStackTrace();
         }
     }
@@ -44,31 +43,31 @@ public class Controller {
                     for (int i = 0; i <= 100; i++) {
                         if (i == 0) {
                             updateMessage("Application starting");
-                            sleepTime = 20;
+                            sleepTime = 10;
                         }
 
                         if (i == 11) {
                             updateMessage("Loading resources");
-                            sleepTime = 35;
+                            sleepTime = 20;
                         }
                         if (i == 31) {
                             updateMessage("Initializing");
-                            sleepTime = 60;
+                            sleepTime = 30;
                         }
 
                         if (i == 61) {
                             updateMessage("Executing");
-                            sleepTime = 100;
+                            sleepTime = 50;
                         }
 
                         if (i == 81) {
                             updateMessage("Optimization");
-                            sleepTime = 20;
+                            sleepTime = 10;
                         }
 
                         if (i == 91) {
                             updateMessage("Almost done!");
-                            sleepTime = 10;
+                            sleepTime = 5;
                         }
                         Thread.sleep(sleepTime); // Symulacja procesu
                         updateProgress(i, 100);
@@ -82,7 +81,7 @@ public class Controller {
             progressIndicator.progressProperty().bind(task.progressProperty());
 
             // Po zakończeniu zadania, wywołuje openMainStage i otwiera nowe okno
-            task.setOnSucceeded(e -> openLoginPanelScene());
+            task.setOnSucceeded(e -> openNewStage("ILoginView.fxml"));
 
             new Thread(task).start();
         } catch (Exception e) {
