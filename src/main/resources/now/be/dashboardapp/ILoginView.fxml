@@ -12,59 +12,49 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<BorderPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="now.be.dashboardapp.controllers.LoginController">
+<BorderPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="now.be.dashboardapp.controllers.LoginController">
    <top>
-      <Pane prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: wheat;" BorderPane.alignment="CENTER"/>
+      <Pane prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: wheat;" BorderPane.alignment="CENTER" />
    </top>
    <left>
-      <Pane prefHeight="200.0" prefWidth="50.0" style="-fx-background-color: red;" BorderPane.alignment="CENTER"/>
+      <Pane prefHeight="200.0" prefWidth="50.0" style="-fx-background-color: red;" BorderPane.alignment="CENTER" />
    </left>
    <right>
-      <Pane prefHeight="200.0" prefWidth="50.0" style="-fx-background-color: lightblue;"
-            BorderPane.alignment="CENTER"/>
+      <Pane prefHeight="200.0" prefWidth="50.0" style="-fx-background-color: lightblue;" BorderPane.alignment="CENTER" />
    </right>
    <bottom>
-      <Pane prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: teal;" BorderPane.alignment="CENTER"/>
+      <Pane prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: teal;" BorderPane.alignment="CENTER" />
    </bottom>
    <center>
       <AnchorPane maxWidth="300.0" prefWidth="300.0" BorderPane.alignment="CENTER">
          <children>
-            <VBox alignment="CENTER" prefWidth="300.0" spacing="12.0" AnchorPane.bottomAnchor="0.0"
-                  AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <VBox alignment="CENTER" prefWidth="300.0" spacing="12.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <Label fx:id="lblLoginToDashboard" alignment="TOP_CENTER" text="LOGOWANIE DO PANELU"
-                         textAlignment="CENTER" wrapText="true">
+                  <Label fx:id="lblLoginToDashboard" alignment="TOP_CENTER" text="LOGOWANIE DO PANELU" textAlignment="CENTER" wrapText="true">
                      <font>
-                        <Font size="32.0"/>
+                        <Font size="32.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="tfUsername" promptText="Nazwa użytkownika..."/>
-                  <PasswordField fx:id="pfPassword" promptText="Hasło..."/>
+                  <TextField fx:id="tfUsername" promptText="Nazwa użytkownika..." text="admin" />
+                  <PasswordField fx:id="pfPassword" promptText="Hasło..." text="1234" />
                   <HBox alignment="CENTER" prefWidth="200.0" spacing="50.0">
                      <children>
-                        <CheckBox fx:id="cbRememberMe" mnemonicParsing="false" text="Zapamiętaj mnie" onAction="#rememberMeChecked">
+                        <CheckBox fx:id="cbRememberMe" mnemonicParsing="false" onAction="#rememberMeChecked" text="Zapamiętaj mnie">
                            <font>
-                              <Font name="System Italic" size="12.0"/>
+                              <Font name="System Italic" size="12.0" />
                            </font>
                         </CheckBox>
-                        <Button fx:id="btnForgotPass" alignment="CENTER_RIGHT" mnemonicParsing="false"
-                                onAction="#forgottenPassword" style="-fx-background-color: none;"
-                                text="Zapomniałem hasła" textAlignment="RIGHT" underline="true">
+                        <Button fx:id="btnForgotPass" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#switchToRecoveryAccountScene" style="-fx-background-color: none;" text="Zapomniałem hasła" textAlignment="RIGHT" underline="true">
                            <font>
-                              <Font name="System Italic" size="12.0"/>
+                              <Font name="System Italic" size="12.0" />
                            </font>
                         </Button>
                      </children>
                   </HBox>
-                  <Button fx:id="btnLogin" mnemonicParsing="false" onAction="#loginToApp" prefHeight="32.0"
-                          prefWidth="150.0" text="Zaloguj"/>
-                  <Button fx:id="btnCreateAccount" alignment="CENTER_RIGHT" mnemonicParsing="false"
-                          onAction="#createAccount" style="-fx-background-color: none;"
-                          text="Nie masz konta? Zarejestruj się!" textAlignment="RIGHT" underline="true">
+                  <Button fx:id="btnLogin" mnemonicParsing="false" onAction="#loginToApp" prefHeight="32.0" prefWidth="150.0" text="Zaloguj" />
+                  <Button fx:id="btnCreateAccount" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#switchToRegistrationScene" style="-fx-background-color: none;" text="Nie masz konta? Zarejestruj się!" textAlignment="RIGHT" underline="true">
                      <font>
-                        <Font name="System Italic" size="12.0"/>
+                        <Font name="System Italic" size="12.0" />
                      </font>
                   </Button>
                </children>
